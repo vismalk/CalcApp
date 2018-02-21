@@ -7,7 +7,6 @@ import android.content.res.Resources;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -56,15 +55,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String value3 = value1.getText().toString();
         String value4 = value2.getText().toString();
 
-
-        // 計算結果
-        double result = 0;
-        // 一つ目の入力数字
-        double suji1 = Double.parseDouble(value3);
-        // 二つ目の入力数字
-        double suji2 = Double.parseDouble(value4);
-
         try {
+            // 計算結果
+            double result = 0;
+            // 一つ目の入力数字
+            double suji1 = Double.parseDouble(value3);
+            // 二つ目の入力数字
+            double suji2 = Double.parseDouble(value4);
+
+
             switch (v.getId()) {
 
                 case R.id.button1:
@@ -84,7 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } catch (NumberFormatException e) {
             Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
+        } catch (ArithmeticException e) {
+            Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
         }
+
     }
 }
-
